@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #212f64;
+  --navy-deep: #161f45;
+  --navy-mid: #32427a;
+  --ice: #eef1f8;
+  --paper: #f7f8fb;
+  --white: #ffffff;
+  --body: #3a4158;
+  --muted: #5c6480;
+  --line: #d5dae8;
+  --error: #9b2c2c;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-mid: var(--navy-mid);
+  --color-ice: var(--ice);
+  --color-paper: var(--paper);
+  --color-white: var(--white);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-error: var(--error);
+  --font-sans: var(--font-dm-sans);
+  --shadow-soft: 0 16px 40px rgb(33 47 100 / 0.08);
+}
+
+html {
+  color-scheme: light;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--white);
+  color: var(--body);
+  font-family: var(--font-dm-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-dm-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--navy) 16%, white);
+  color: var(--navy-deep);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 80;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
